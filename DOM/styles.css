@@ -1,0 +1,40 @@
+/* .header
+.bold
+.change__color
+.underlined
+.italic
+.horizontal
+.invisibale */
+
+#container{
+    min-height: 300px;
+    position: relative;
+    background-color: #000;
+    min-width: 380px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    min-width: 380px;
+}
+
+#clock, #date {
+    color: #fff502;
+    border-radius: 10px;  
+    font-family: 'Source Code Pro', monospace;
+}
+#clock{
+    text-align: center;
+        font-size: 72px;
+        position: absolute;
+        margin: 0 auto;
+    padding: 10px;top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+#date{
+    text-align: left;
+    font-size: 36px;
+    position:absolute;
+    padding: 0;
+    display: inline;
+    
+}

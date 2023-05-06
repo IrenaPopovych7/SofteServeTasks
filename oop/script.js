@@ -58,6 +58,15 @@ class Person {
 }
 let me = new Person();
 me.showFullName();
+class Student extends Person{
+  constructor(year){
+    this.year = +prompt('Please enter the year you entered the university');
+  }
+  showFullName(midleName){
+    let midleName = prompt("Enter your midle name, please");
+    
+  }
+}
 // 4.
 // А. Реалізувати клас, який описує простий маркер. У класі мають бути такі компоненти:
 //  - поле, яке зберігає колір маркера;
