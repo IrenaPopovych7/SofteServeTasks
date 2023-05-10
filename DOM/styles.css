@@ -1,10 +1,26 @@
-/* .header
-.bold
-.change__color
-.underlined
-.italic
-.horizontal
-.invisibale */
+.header{
+    font-weight: bolder;
+    background-color: rgb(106, 177, 106);
+}
+.bold{
+    font-weight:bold;
+}
+.change__color{
+    color: red;
+}
+.underlined{
+    text-decoration: underline;
+}
+.italic{
+   font-style: italic; 
+}
+.horizontal{
+    writing-mode: horizontal-tb;
+    text-orientation: upright;
+}
+.invisibale{
+    display: none;
+}
 
 #container{
     min-height: 300px;

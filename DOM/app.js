@@ -1,10 +1,15 @@
 //-------------------------------------------------TASK 1
 const list = document.getElementById("list");
-alert(
+console.log(
   `Output result: 
-  ${list.childNodes[4].textContent}` //null????
+  ${list.elemen}` //null????
 );
 //-------------------------------------------------TASK 2
+function myFunction(){
+  let head = document.getElementsByTagName("h1");
+  head.classList.add("header");
+}
+myFunction();
 
 //-------------------------------------------------TASK 6
 function displayTime() {
