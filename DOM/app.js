@@ -5,11 +5,11 @@ console.log(
   ${list.elemen}` //null????
 );
 //-------------------------------------------------TASK 2
-function myFunction(){
-  let head = document.getElementsByTagName("h1");
-  head.classList.add("header");
-}
-myFunction();
+// function myFunction(){
+//   let head = document.getElementsByTagName("h1");
+//   head.classList.add("header");
+// }
+// myFunction();
 
 //-------------------------------------------------TASK 6
 function displayTime() {
