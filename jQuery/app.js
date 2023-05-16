@@ -15,3 +15,14 @@ $(document).ready(function(){
         div.insertBefore(header);
     });
 });
+
+// -----------------------------------------TASK 4
+$(document).ready(function(){
+    const isChecked = $("input[type='checkbox']");
+    isChecked.change(function(){
+        let checkedCount = isChecked.filter(':checked').length;
+        if(checkedCount === 3) {
+            isChecked.prop('disabled', true);
+        }
+    });
+});
