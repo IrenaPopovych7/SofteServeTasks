@@ -1,16 +1,18 @@
 //-------------------------------------------------TASK 1
 const list = document.getElementById("list");
 const liElem = list.getElementsByTagName("li");
-const firstChild = liElem[0].innerHTML;
-const lastClildEl = liElem[4].innerHTML;
+const firstEl = liElem[0].innerHTML;
+const lastEl = liElem[4].innerHTML;
 const secondChild = liElem[1].innerHTML;
 const fourthClildEl = liElem[3].innerHTML;
 const thirthChild = liElem[2].innerHTML;
 
-console.log(`Output result : ${firstChild}, ${lastClildEl}, ${secondChild}, ${fourthClildEl}, ${thirthChild}`);
+console.log(
+  `Output result : ${firstEl}, ${lastEl}, ${secondChild}, ${fourthClildEl}, ${thirthChild}`
+);
 //-------------------------------------------------TASK 2
-function myFunction(){
-  let headerBig = document.getElementsByTagName('h1')[0];
+function myFunction() {
+  let headerBig = document.getElementsByTagName("h1")[0];
   headerBig.classList.add("header");
 
   let parentEl = document.getElementById("myDiv");
@@ -20,15 +22,23 @@ function myFunction(){
   parentEl.children[2].classList.add("underline");
 
   let ulElem = document.getElementById("myList").getElementsByTagName("li");
- for (let i = 0; i < ulElem.length; i++){
-  ulElem[i].classList.add("horizontal");
+  for (let i = 0; i < ulElem.length; i++) {
+    ulElem[i].classList.add("horizontal");
 
-  let spanElem = document.getElementsByTagName("span")[0];
-  spanElem.classList.add("invisibale");
- }
+    let spanElem = document.getElementsByTagName("span")[0];
+    spanElem.classList.add("invisibale");
+  }
 }
 myFunction();
 
+//-------------------------------------------------TASK 3
+
+const contentContainer = document.querySelector("#empty");
+contentContainer.innerHTML += `<main class="mainClass check item">         
+     <div id="myDiv">
+         <p>First paragraph</p>           
+     </div>
+ </main>`;
 //-------------------------------------------------TASK 6
 function displayTime() {
   let currentDate = new Date();
@@ -71,6 +81,6 @@ function displayTime() {
   ];
   document.getElementById("clock").innerHTML =
     hours + ":" + minutes + ":" + secondes + " " + amORpm;
-    document.getElementById("date").innerHTML = monthes[month]+ " " + today;
+  document.getElementById("date").innerHTML = monthes[month] + " " + today;
 }
 setInterval(displayTime, 1000);
