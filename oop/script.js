@@ -1,26 +1,44 @@
 // 1.
-// Напишіть клас Круг та реалізуйте функціонал:
-//  - Визначте конструктор, який запитує координати центру кола, його радіус та ініціалізує об'єкт;
-//  - Визначте метод отримання довжини кола для поточного об'єкта (L = 2 * π * R);
-//  - Визначте статичний метод, який приймає радіус та повертає довжину кола для заданого радіусу;
-//  - Визначте метод отримання об'єкта-кола, який повертає копію поточного об'єкта;
-//  - Визначте статичний метод, який приймає координати центра кола, його радіус та повертає об'єкт кола із заданими параметрами;
-//  - Визначте метод перевірки попадання крапки до кола;
-//  - Визначте метод перетворення поточного стану об'єкта на символьний рядок (toString()).
+
 class Raund {
   constructor(centerX, centerY, radius) {
-    this.centerX = +prompt("Enter parameters of centerX");
-    this.centerY = +prompt("Enter parameters of ${centerY}");
-    this.radius = +prompt("Enter parameters of ${radius}");
+    this.centerX = centerX;
+    this.centerY = centerY;
+    this.radius = radius;
   }
   showOb() {
-    console.log(this.centerX);
-    console.log(this.centerY);
-    console.log(this.radius);
+    return 2 * Math.PI * this.radius;
+  }
+
+static getCircumferenceByRadius(radius) {
+    return 2 * Math.PI * radius;
+  }
+
+  getCopy() {
+    return new Raund(this.centerX, this.centerY, this.radius);
+  }
+  static createFromParameters(centerX, centerY, radius) {
+    return new Circle(centerX, centerY, radius);
+  }
+
+  isPointInside(x, y) {
+    const distance = Math.sqrt((x - this.centerX) ** 2 + (y - this.centerY) ** 2);
+    return distance <= this.radius;
+  }
+
+  toString() {
+    return `Circle with center (${this.centerX},${this.centerY}) and radius ${this.radius}`;
   }
 }
-let circle = new Raund();
+const circle = new Circle(0, 0, 5);
 
+
+console.log(circle.getCircumference()); // Виведе: 31.41592653589793
+console.log(Circle.getCircumferenceByRadius(5)); // Виведе: 31.41592653589793
+console.log(circle.getCopy()); // Виведе: Circle { centerX: 0, centerY: 0, radius: 5 }
+console.log(Circle.createFromParameters(2, 2, 3)); // Виведе: Circle { centerX: 2, centerY: 2, radius: 3 }
+console.log(circle.isPointInside(3, 4)); // Виведе: true
+console.log(circle.toString()); // Виведе: Circle with center (0,0) and radius 5
 circle.showOb();
 
 // 2.
