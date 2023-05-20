@@ -5,10 +5,7 @@
 .bold{
     font-weight:bold;
 }
-.change__color{
-    color: red;
-}
-.underlined{
+.underline{
     text-decoration: underline;
 }
 .italic{
@@ -17,11 +14,15 @@
 .horizontal{
     writing-mode: horizontal-tb;
     text-orientation: upright;
+    list-style-type: none;
+    display: inline;
 }
 .invisibale{
     display: none;
 }
 
+
+/* ------------------------------CLOCK------------------------------ */
 #container{
     min-height: 300px;
     position: relative;
