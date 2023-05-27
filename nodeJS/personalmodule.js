@@ -1,3 +1,5 @@
+const { generateKey } = require("crypto");
+
 function greetUser(username) {
   const currentHour = new Date().getHours();
   let greeting;
