@@ -1,52 +1,43 @@
 // 1.
 
 class Raund {
-  constructor(centerX, centerY, radius) {
-    this.centerX = centerX;
-    this.centerY = centerY;
-    this.radius = radius;
+  constructor(x, y, radius) {
+    this._center = {x:x, y:y};
+    this._radius = radius;
   }
-  showOb() {
-    return 2 * Math.PI * this.radius;
+  calcPeriment() {
+    return 2 * Math.PI * this._radius;
   }
-
-static getCircumferenceByRadius(radius) {
-    return 2 * Math.PI * radius;
+  static perimetr(redius) {
+    return 2 * Math.PI * redius;
   }
 
-  getCopy() {
-    return new Raund(this.centerX, this.centerY, this.radius);
-  }
-  static createFromParameters(centerX, centerY, radius) {
-    return new Circle(centerX, centerY, radius);
+  circleCopy() {
+    return new Raund(...Object.values(this));
   }
 
-  isPointInside(x, y) {
-    const distance = Math.sqrt((x - this.centerX) ** 2 + (y - this.centerY) ** 2);
-    return distance <= this.radius;
+  static circleObject(x, y, radius){
+    return new Raund(x, y, radius);
+  }
+
+  isPointInside(x, y){
+    const formula = (x ** 2) + (y ** 2) +(this._radius ** 2);
+    formula <= 0 ? console.log("inside") : console.log("outside");
   }
 
   toString() {
-    return `Circle with center (${this.centerX},${this.centerY}) and radius ${this.radius}`;
-  }
-}
-const circle = new Circle(0, 0, 5);
-
-
-console.log(circle.getCircumference()); // Виведе: 31.41592653589793
-console.log(Circle.getCircumferenceByRadius(5)); // Виведе: 31.41592653589793
-console.log(circle.getCopy()); // Виведе: Circle { centerX: 0, centerY: 0, radius: 5 }
-console.log(Circle.createFromParameters(2, 2, 3)); // Виведе: Circle { centerX: 2, centerY: 2, radius: 3 }
-console.log(circle.isPointInside(3, 4)); // Виведе: true
-console.log(circle.toString()); // Виведе: Circle with center (0,0) and radius 5
-circle.showOb();
-
+    return `Center is: ${this._center}, radius is ${this._radius}`;
+  }}
+  const circle = new Raund(0, 0, 5);
+  circle.isPointInside(2,10);
+  console.log(circle._center);
 // 2.
 
 let mentor = {
   course: "JS fundamental",
   duration: 3,
   direction: "web-development",
+  level: "middle"
 };
 function propsCount(obj) {
   let count = 0;
@@ -56,15 +47,13 @@ function propsCount(obj) {
   return count;
 }
 console.log(propsCount(mentor)); // 3
+
+
 // 3.
-// Створіть клас Person, у якого конструктор приймає параметри name і surname, а також міститься метод showFullName(), який виводить у консоль ім’я і прізвище особи.
-//  - Від класу Person наслідується клас Student, конструктор якого крім name і surname, приймає параметр year (рік вступу до університету).
-//  - В класі Student необхідно перевизначити метод showFullName(midleName), щоб виводилося не лише ім’я, прізвище, але і по-батькові (midleName) студента.
-//  - Також в класі Student необхідно реалізувати метод showCourse(), який виводитиме поточний курс студента (від 1 до 6). Значення курсу визначатиметься як різниця поточного року (визначити самостійно) і року вступу до ВНЗ.
-// Приклад результату:
-// const stud1 = new Student("Petro", "Petrenko", 2019);
-// console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych
-// console.log("Current course: " + stud1.showCourse()); //Current course: 4
+
+
+
+
 class Person {
   constructor(firstName, surname) {
     this.firstName = prompt(`What is your firstName?`);
@@ -74,24 +63,83 @@ class Person {
     console.log(`Your name is ${this.firstName} ${this.surname}`);
   }
 }
+
 let me = new Person();
 me.showFullName();
+
 class Student extends Person{
   constructor(year){
-    this.year = +prompt('Please enter the year you entered the university');
+    super();
+    this.year = year;
   }
-  showFullName(midleName){
-    let midleName = prompt("Enter your midle name, please");
-    
+  showFullName(midleName) {
+    return `Name is: ${this.name}; Middle name is ${midleName}; Surname is ${this.surname}`;
+  }
+  showCours() {
+    try {
+      const date = new Date();
+      const course = date.getFullYear() = this.year;
+    if (course <= 0 || course >= 6){
+      throw new RangeError("The course number is out of range");}
+      return course;
+    } catch (error){
+      console.error(error);
+    }  }
+  
+}
+
+const stud1 = new Student("Petro", "Petrenko", 2019);
+console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych
+console.log("Current course: " + stud1.showCours()); //Current course: 4
+
+// 4.
+// 
+
+const text = "FGHJJNMYDDGFYHJDKUJYJK";
+class Marker {
+  constructor(color, inkQuantity){
+    this.color = color;
+    this.inkQuantity = inkQuantity;
+  
+}
+print(text) {
+  text.split("").forEach(char => {
+    document.write(
+      `<span style = "color: ${this.color}
+      opacity: ${this.inkQuantity};">${char} </span>`
+    );
+    this.inkQuantity -= 0.05;
+  });
+}}
+
+class RefillableMarker extends Marker {
+  constructor (color, inkQuantity) {
+    super(color, inkQuantity);
+  }
+  print(text) {
+    text.split("").forEach(char => {
+      while(this.inkQuantity < 1) {
+        this.refill();
+      }
+      document.write(
+        `<span style="color: ${this.color};
+        opacity: ${this.inkQuantity};"> ${char} </span>`
+      );
+      this.inkQuantity -= 0.05;
+    });
+  }
+  refill() {
+    this.inkQuantity += 0.05;
   }
 }
-// 4.
-// А. Реалізувати клас, який описує простий маркер. У класі мають бути такі компоненти:
-//  - поле, яке зберігає колір маркера;
-//  - поле, яке зберігає кількість чорнила в маркері (у відсотках);
-//  - метод друку (метод приймає рядок і виводить текст відповідним кольором;
-// текст виводиться до тих пір, поки в маркері є чорнило; один не пробіловий символ – це 0,5% чорнила в маркері).
-// В. Реалізувати клас, що описує маркер, що заправляється, успадкувавши його від простого маркера і додавши метод для заправки маркера. Продемонструвати роботу написаних методів
+let marker = new Marker("red", 0.5);
+marker.print(text);
+let marker2 = new Marker("white", 1);
+let refillableMarker = new RefillableMarker("green", 1);
+refillableMarker.print(text);
+let refillableMarker2 = new RefillableMarker("blue", 0.6);
+refillableMarker2.print(text);
+
 // 5.
 // Створіть клас Worker який буде мати конструктор, який приймає наступні властивості: fullName (ім’я і прізвище), dayRate (ставка за день роботи), workingDays (кількість відпрацьованих днів).
 //     1) клас повинен мати метод showSalary(), який буде виводити зарплату працівника. Зарплата - це добуток ставки dayRate на кількість відпрацьованих днів workingDays.

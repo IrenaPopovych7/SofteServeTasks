@@ -2,7 +2,7 @@
 
 :root {
     --container-height: 600px;
-    --container-width: 400px;
+    --contaier-width: 400px;
     --header-height: 150px;
 }
 
@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -27,7 +27,7 @@ body {
 
 .container {
     background-color: antiquewhite;
-    width: var(--container-width);
+    width: var(--contaier-width);
     height: var(--container-height);
 
     position: relative;
@@ -37,7 +37,7 @@ body {
 header {
     width: 100%;
     height: var(--header-height);
-    background-image: url(./img/bg.jpg);
+    background-image: url('./img/bg.jpg');
     background-size: cover;
     border-radius: 5px 5px 0 0;
 }
@@ -62,7 +62,7 @@ header {
     align-items: center;
 }
 
-.new-tod form input {
+.new-todo form input {
     flex: 1;
     height: 40px;
     background-color: transparent;
@@ -125,7 +125,7 @@ header {
 
 .checked {
     text-decoration: line-through;
-    color: gray;
+    color: grey;
 }
 
 #todos-list .todo .bi-pencil-square {
@@ -136,10 +136,11 @@ header {
     color: rgb(236, 82, 82);
     margin: 0;
 }
+
 .notification {
     position: absolute;
 
-    width: calc(3* var(--container-width) / 4);
+    width: calc(3 * var(--contaier-width) / 4);
     height: 60px;
 
     display: flex;
@@ -148,13 +149,15 @@ header {
 
     opacity: 0.9;
 
-    border-radius: 9px;
-    background-color: rgb(233, 81,81);
+    border-radius: 8px;
+    background-color: rgb(233, 81, 81);
     top: 10px;
-    right: calc(-3 * var(--container-width)/4);
+    right: calc(-3 * var(--contaier-width) / 4);
+
     color: #fff;
+
     transition: 300ms right ease-in-out;
 }
+
 .notif-enter {
-    right: 10px;
-}
+    right: 10px;}
